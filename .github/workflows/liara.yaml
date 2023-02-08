@@ -14,6 +14,5 @@ jobs:
       - name: update-liara
         env:
           LIARA_TOKEN: ${{ secrets.LIARA_API_TOKEN }}
-        run: |
-          npm i -g @liara/cli@3
+        run: npm install -g @liara/cli &&
           liara deploy --app="mjaliz-emaily" --api-token="$LIARA_TOKEN" --detach
