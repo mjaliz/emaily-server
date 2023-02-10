@@ -4,9 +4,8 @@ require("dotenv").config();
 
 require("./models/User");
 require("./services/passport");
-const dbUser = process.env.MONGO_USER;
-const dbPassword = process.env.MONGO_PASSWORD;
-const mongURI = "mongodb://localhost/emaily-dev";
+
+const mongURI = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_HOST}:${process.env.MONGODB_DOCKER_PORT}/${process.env.MONGODB_DATABASE}?authSource=admin`;
 
 mongoose
   .connect(mongURI)
