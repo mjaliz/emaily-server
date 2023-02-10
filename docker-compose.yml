@@ -10,7 +10,7 @@ services:
       - $MONGODB_LOCAL_PORT:$MONGODB_DOCKER_PORT
     command: mongod
     volumes:
-      - db:/data/db
+      - ./mongo:/data/db
     restart: always
   mongo-express:
     image: mongo-express:1.0.0-alpha.4
