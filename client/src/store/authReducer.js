@@ -24,7 +24,7 @@ const slice = createSlice({
       user.loading = false;
     },
     currentUserReceived: (user, action) => {
-      user.currentUser = action.payload;
+      user.currentUser = action.payload || false;
     },
   },
 });
@@ -50,13 +50,10 @@ export const signUp = (user) =>
     onSuccess: userSignUpReceived.type,
   });
 
-export const fetchUser = () => (dispatch, getState) => {
+export const fetchUser = () => async (dispatch, getState) => {
   try {
-    axios
-      .get("/api/current_user")
-      .then((res) =>
-        dispatch({ type: currentUserReceived.type, payload: res.data })
-      );
+    const res = await axios.get("/api/current_user");
+    dispatch({ type: currentUserReceived.type, payload: res.data });
   } catch (ex) {
     return null;
   }
