@@ -11,7 +11,7 @@ require("./services/passport");
 // Use this mongoURI in Ubuntu
 // const mongoURI = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_HOST}:${process.env.MONGODB_DOCKER_PORT}/${process.env.MONGODB_DATABASE}?authSource=admin`;
 
-const mongoURI = "mongodb://localhost/emialy";
+const mongoURI = "mongodb://localhost/emaily";
 
 mongoose
   .connect(mongoURI)
